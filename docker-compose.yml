@@ -1,0 +1,13 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dev_env
+    ports:
+      - "9000:9000"  # PHP-FPM
+      - "3000:3000"  # Vite (if used)
+    volumes:
+      - ./app:/var/www  # Persist project code (and Git repo data)
+    environment:
+      - APP_ENV=local
