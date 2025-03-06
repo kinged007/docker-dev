@@ -63,12 +63,12 @@ EXPOSE 9000 3000
 
 
 # # Add a non-root user for development
-# RUN addgroup -g 1000 developer && \
-#     adduser -u 1000 -G developer -s /bin/sh -D developer && \
-#     chown -R developer:developer /var/www
+RUN addgroup -g 1000 developer && \
+    adduser -u 1000 -G developer -s /bin/sh -D developer && \
+    chown -R developer:developer /var/www
 
 # # Switch to non-root user
-# USER developer
+USER developer
 
 # Default command (you may override this in docker-compose)
 CMD ["php-fpm"]
